@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Html Editor";
+}
+
+
+
+<h1 class="text-center mb-5">Classic editor</h1>
+<form asp-controller="Home" asp-action="EditorResult" method="post">
+    <textarea name="content" id="editor">
+    </textarea>
+    <input type="submit" value="Submit" class="mt-5 form-control btn btn-success">
+</form>
+
+
+
+
+
+<script src="~/js/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>

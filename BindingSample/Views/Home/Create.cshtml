@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4">Create</h1>
+</div>
+
+
+<div class="container">
+    <form asp-controller="Home" asp-action="Result" method="get" class="form">
+
+        <div class="col-12 row p-3" style="border:solid 5px red">
+            <h4 class="col-12 text-center mb-3">Product</h4>
+            <div class="form-group col-6">
+                <label class="form-label">Id</label>
+                <input type="number" name="Product.Id" class="form-control" />
+            </div>
+            <div class="form-group col-6">
+                <label class="form-label">Name</label>
+                <input type="text" name="Product.Name" class="form-control" />
+            </div>
+            <div class="form-group col-6">
+                <label class="form-label">Category.Id</label>
+                <input type="number" name="Product.Category.Id" class="form-control" />
+            </div>
+            <div class="form-group col-6">
+                <label class="form-label">Category.Title</label>
+                <input type="text" name="Product.Category.Title" class="form-control" />
+            </div>
+        </div>
+        <hr />
+        <div class="col-12 row p-3" style="border:solid 5px blue">
+            <h4 class="col-12 text-center mb-3">Property</h4>
+            <div class="form-group col-4">
+                <label class="form-label">Id</label>
+                <input type="number" name="Prop.Id" class="form-control" />
+            </div>
+            <div class="form-group col-4">
+                <label class="form-label">Title</label>
+                <input type="text" name="Prop.Title" class="form-control" />
+            </div>
+            <div class="form-group col-4">
+                <label class="form-label">Value</label>
+                <input type="text" name="Prop.Value" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group col-12 row mt-5">
+            <input type="submit" name="Submit" class="form-control btn btn-success" />
+        </div>
+
+    </form>
+
+</div>
