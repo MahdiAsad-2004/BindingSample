@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Category
+
+<div class="text-center mb-5">
+    <h1 class="display-4">Create Category</h1>
+</div>
+
+
+<div class="container">
+    <form asp-controller="Home" id="category-from" asp-action="CreateCategoryResult" method="get" class="form row">
+
+        <div class="form-group col-6 mb-4">
+            <label class="form-label">Id</label>
+            <input type="number" name="category.Id" class="form-control" />
+        </div>
+        <div class="form-group col-6 mb-4">
+            <label class="form-label">Title</label>
+            <input type="text" name="category.Title" class="form-control" />
+        </div>
+        <div class="form-group col-2 mb-4">
+            <button type="button" class="btn btn-outline-primary form-control" onclick="AddProductForm()">Add Product</button>
+        </div>
+
+        <div id="products">
+
+        </div>
+
+
+        <div class="form-group col-12 row mt-5">
+            <input type="submit" name="Submit" class="form-control btn btn-success" />
+        </div>
+
+    </form>
+
+    
+
+</div>
+
+
+
+<script>
+    let productIndex = 0;
+    let products = document.getElementById('products');
+
+    let formString = "";
+
+    function CreateProductFormString(number) {
+        
+        return " <div class='col-12 row p-1 mb-2' style='border:solid 3px blue'><div class='form-group col-4 mb-4'><label class='form-label'> Product[" + number + "].Id </label><input type='number' name='category.products[" + number + "].Id' class='form-control'/></div><div   class='form-group col-4 mb-4'><label class='form-label'> Product[" + number + "].Name </label><input type='text' name='category.products[" + number + "].Name' class='form-control'/></div><div class='form-group col-4 mb-4'><label class='form-label'> Product[" + number + "].Price </label><input type='number' name='category.products[" + number + "].Price' class='form-control'/></div></div>"
+    }
+
+
+    function AddProductForm() {
+        formString = CreateProductFormString(productIndex);
+        //products.innerHTML += formString;
+        products.insertAdjacentHTML("beforeend",formString)
+        productIndex++;
+        //products.innerHTML += formStr;
+        //console.log(formString);
+        //console.log(productIndex);
+        //console.log('-------------------------------------------------------------------');
+    }
+</script>

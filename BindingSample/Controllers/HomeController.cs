@@ -47,13 +47,43 @@ namespace BindingSample.Controllers
         {
             return View();
         }
-
-
         [HttpPost]
         public IActionResult EditorResult(string content)
         {
             return Json(content);
         }
+
+
+
+
+
+
+        public IActionResult CreateDic() 
+        {
+            return View();
+        }
+
+        public IActionResult CreateDicResult(Product pr)
+        {
+            return Json(pr);
+        }
+
+
+
+
+
+        public IActionResult CreateCategory()
+        {
+            return View();
+        }
+
+        public IActionResult CreateCategoryResult(Category category)
+        {
+            return Json(category);
+        }
+
+
+
 
 
 
