@@ -1,0 +1,32 @@
+﻿@using System.Text.Json
+@{
+
+    ViewData["Title"] = "Home Page";
+
+    var token = new Token()
+            {
+                Id = 123444,
+                Key = "This is secret key for email confimation.",
+                Email = "MahdiAsadi@test.com",
+            };
+    var s = JsonSerializer.Serialize(token);
+
+    var encryptedString = AesOperation.EncryptString(ViewBag.KeyCoder, s);
+
+    var url = Url.Action("EmailConfirm", "Account", new { UserId = Guid.NewGuid().ToString(), Code = encryptedString }, Context.Request.Scheme);
+}
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+    <a href="@url" class="btn btn-outline-primary">Link</a>
+
+    <h4>@encryptedString</h4>
+
+    <h5>@url</h5>
+
+</div>

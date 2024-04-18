@@ -51,4 +51,52 @@
 
     </form>
 
+    <br />
+    <br />
+    <br />
+
+    <form id="fetch-form" href="/Home/Create" method="post">
+        <div class="col-12 row p-3" style="border:solid 5px green">
+            <h4 class="col-12 text-center mb-3">Create Product </h4>
+            <div class="form-group col-4">
+                <label class="form-label">Id</label>
+                <input type="number" name="product.Id" class="form-control" />
+            </div>
+            <div class="form-group col-4">
+                <label class="form-label">Name</label>
+                <input type="text" name="product.Name" class="form-control" />
+            </div>
+            <div class="form-group col-4">
+                <label class="form-label">Price</label>
+                <input type="text" name="product.Price" class="form-control" />
+            </div>
+            <input hidden name="product.Category.Id" value="20"/>
+            <input hidden name="product.Category.Title" value="cate 1"/>
+            <div class="form-group col-12 row mt-5">
+                <input type="submit" name="Submit" class="form-control btn btn-success" />
+            </div>
+        </div>
+    </form>
+
 </div>
+
+
+
+<script>
+
+    let resPromise;
+    document.getElementById('fetch-form').onsubmit = (e) => {
+        e.preventDefault();
+        resPromise = fetch(e.target.getAttribute('href'), {
+            method: e.target.getAttribute('method'),
+            body: new FormData(e.target),
+        });
+
+        resPromise.then(a => {
+            a.json().then(b => console.log(b));
+        });
+
+        
+    }
+
+</script>

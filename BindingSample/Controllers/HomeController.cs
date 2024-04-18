@@ -86,6 +86,27 @@ namespace BindingSample.Controllers
 
 
 
+        [HttpPost]
+        public IActionResult Create(Product product)
+        {
+            return Json(product);
+        }
+
+
+
+
+        
+        public IActionResult Test()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Test(List<int> numbers)
+        {
+            return Content(numbers.Sum().ToString());
+            return Json(numbers);
+        }
 
 
     }
